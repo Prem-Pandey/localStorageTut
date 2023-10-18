@@ -21,12 +21,8 @@
             <p>age</p>
             <input type="text" name="age" required>
             <br>
-            <!-- <span>gender: </span>
-            <span>male</span>
-            <input type="radio" name="gender" id="male" >
-            <span>female</span>
-            <input type="radio" name="gender" id="female"> -->
-            <br>
+           
+            
             <button>submit</button>
 
         </form>
@@ -35,19 +31,16 @@
        function saveToLocalStorage(event)
        {
         event.preventDefault()
-        const name = event.target.name.value
-        const email = event.target.email.value
-        const phone = event.target.phone.value
-        const age =  event.target.age.value
-        // let gender = document.getElementById('male').value
-        //  gender = document.getElementById('female').value
-        localStorage.setItem('name', name)
-        localStorage.setItem('email', email)
-        localStorage.setItem('phone', phone)
-        localStorage.setItem('age', age)
-        // localStorage.setItem('gender', male)
-        // localStorage.setItem('gender', female)
+        const object = {
+             name : event.target.name.value,
+             email : event.target.email.value,
+             phone : event.target.phone.value,
+             age :  event.target.age.value
+        }
+        const stringifiedObject  = JSON.stringify(object)
         
+        localStorage.setItem('object', stringifiedObject)
+       
        }
     </script>
 </body>
