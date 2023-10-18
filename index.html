@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form onsubmit="saveToLocalStorage(event)">
+            <p>name</p>
+            <input type="text"  name="name" required>
+
+            <p>email</p>
+            <input type="email" name="email" required>
+
+            <p>phone</p>
+
+            <input type="text" name="phone" required>
+
+            <p>age</p>
+            <input type="text" name="age" required>
+            <br>
+            <!-- <span>gender: </span>
+            <span>male</span>
+            <input type="radio" name="gender" id="male" >
+            <span>female</span>
+            <input type="radio" name="gender" id="female"> -->
+            <br>
+            <button>submit</button>
+
+        </form>
+    </div>
+    <script>
+       function saveToLocalStorage(event)
+       {
+        event.preventDefault()
+        const name = event.target.name.value
+        const email = event.target.email.value
+        const phone = event.target.phone.value
+        const age =  event.target.age.value
+        // let gender = document.getElementById('male').value
+        //  gender = document.getElementById('female').value
+        localStorage.setItem('name', name)
+        localStorage.setItem('email', email)
+        localStorage.setItem('phone', phone)
+        localStorage.setItem('age', age)
+        // localStorage.setItem('gender', male)
+        // localStorage.setItem('gender', female)
+        
+       }
+    </script>
+</body>
+</html>
