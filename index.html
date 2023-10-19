@@ -28,18 +28,34 @@
         </form>
     </div>
     <script>
+    
        function saveToLocalStorage(event)
        {
         event.preventDefault()
+       
+        let arr;
         const object = {
              name : event.target.name.value,
              email : event.target.email.value,
              phone : event.target.phone.value,
-             age :  event.target.age.value
+              age :  event.target.age.value
         }
-        const stringifiedObject  = JSON.stringify(object)
+        const localStorageContent = localStorage.getItem('object')
         
-        localStorage.setItem('object', stringifiedObject)
+        if(localStorageContent===null)
+        {
+            arr = []
+        }
+        else{
+            arr = JSON.parse(localStorageContent)
+        }
+        
+        arr.push(object)
+        
+        
+        const stringifiedArr  = JSON.stringify(arr)
+        
+        localStorage.setItem('object', stringifiedArr)
        
        }
     </script>
